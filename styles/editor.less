@@ -1,0 +1,59 @@
+
+// Editor in a panel
+
+atom-panel-container atom-text-editor.is-focused {
+  .focus();
+}
+
+atom-text-editor {
+
+  .gutter {
+    .line-number {
+      font-size: 75%;
+      line-height: 2.2;
+      .icon-right {
+        line-height: 1;
+        font-size: 125%;
+      }
+    }
+  }
+  .line {
+    border-radius: 2px;
+  }
+
+}
+// Mini
+// Usually just single line inputs
+
+atom-text-editor[mini] {
+  overflow: auto;
+  font-size: @ui-input-size;
+  line-height: @ui-line-height;
+  max-height: @ui-line-height * 5; // rows
+  padding-left: @ui-padding/3;
+  border-radius: @component-border-radius;
+  color: @text-color-highlight;
+  border: 1px solid @input-border-color;
+  background-color: @input-background-color;
+
+  .placeholder-text {
+    color: @text-color-subtle;
+  }
+
+  .selection .region {
+    background-color: @input-selection-color;
+  }
+
+  .cursor {
+    border-color: @accent-color;
+    border-width: 2px;
+  }
+
+  &.is-focused {
+    .focus();
+    background-color: @input-background-color-focus;
+    .selection .region {
+      background-color: @input-selection-color-focus;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.title-bar {
+  height: 22px; // remove 1px since there is no border
+  height: @ui-tab-height;
+  border-bottom: none;
+  background: @title-bar-color;
+  font-size: 12px;
+  -webkit-app-region: drag;
+  .custom-title-bar & {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 1px 0 0 @level-3-color;
+  }
+  .custom-inset-title-bar & {
+    .title {
+      display: none;
+    }
+  }
+}

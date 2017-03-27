@@ -1,0 +1,90 @@
+
+// Panels
+
+// Keep at least some padding when there are no panels
+atom-panel-container {
+  &.left,
+  &.right {
+    min-width: @ui-padding-pane;
+  }
+  &.header {
+    .fullscreen & {
+      display: none;
+    }
+  }
+}
+
+atom-panel {
+  .text(normal);
+  position: relative;
+
+  &.header {
+    // border-bottom: 1px solid @base-border-color;
+  }
+  &.top {
+    border: 1px solid @base-border-color;
+    border-top: none;
+  }
+  &.left {
+    border-bottom: 1px solid @base-border-color;
+    border-right: 1px solid @base-border-color;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  &.right {
+    border-bottom: 1px solid @base-border-color;
+    border-left: 1px solid @base-border-color;
+    &:first-child {
+      border-left: none;
+    }
+  }
+  &.bottom {
+    border: 1px solid @base-border-color;
+    border-top: none;
+    background-color: @level-1-color;
+  }
+  &.footer:not(:last-child) {
+    border-bottom: 1px solid @base-border-color;
+  }
+  &.tool-panel:empty {
+    border: none;
+  }
+}
+
+.panel {
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+}
+
+.inset-panel {
+  position: relative;
+  background-color: @inset-panel-background-color;
+  border-radius: @component-border-radius;
+  &.bordered {
+    border: 1px solid @base-border-color;
+    border-radius: @component-border-radius;
+  }
+  & .panel-heading {
+    border-color: @inset-panel-border-color;
+  }
+}
+
+.panel-heading {
+  .text(normal);
+  border-bottom: 1px solid @panel-heading-border-color;
+  background-color: @panel-heading-background-color;
+
+  .btn {
+    padding-left: 8px;
+    padding-right: 8px;
+    .btn-default(
+      lighten(@button-background-color, 10%),
+      lighten(@button-background-color-hover, 10%),
+      lighten(@button-background-color-selected, 10%),
+      lighten(@text-color, 10%)
+    );
+  }
+}
