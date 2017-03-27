@@ -2,6 +2,8 @@
 
 A dark UI theme that adjusts to most syntax themes.
 
+![neutron-dark-ui](https://cloud.githubusercontent.com/assets/806104/24346830/c9f499de-129b-11e7-95ac-6aba291e6038.png)
+
 ### Combine with other Syntax themes
 
 There is a matching [syntax theme](https://atom.io/themes/one-dark-syntax), but most other syntax themes work fine as well.
