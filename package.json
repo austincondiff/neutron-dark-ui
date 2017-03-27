@@ -1,7 +1,7 @@
 {
   "name": "neutron-dark-ui",
   "theme": "ui",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Neutron dark UI theme",
   "keywords": [
     "dark",
