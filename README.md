@@ -6,11 +6,11 @@ A dark UI theme that adjusts to most syntax themes.
 
 ### Combine with other Syntax themes
 
-There is a matching [syntax theme](https://atom.io/themes/one-dark-syntax), but most other syntax themes work fine as well.
+There is a matching [syntax theme](https://atom.io/themes/neutron-dark-syntax), but most other syntax themes work fine as well.
 
 ### Install
 
-This theme is installed by default with Atom and can be activated by going to the __Settings > Themes__ section and selecting "One Dark" from the __UI Themes__ drop-down menu.
+This theme can be activated by going to the __Settings > Themes__ section and selecting "One Dark" from the __UI Themes__ drop-down menu.
 
 ### Settings
 
