@@ -1,0 +1,97 @@
+atom-panel-container .tool-bar {
+  background-color: @level-1-color;
+  .tool-bar-spacer {
+    background-color: @level-3-color;
+  }
+  button.tool-bar-btn {
+    background: transparent;
+    border-color: transparent;
+  }
+  &.tool-bar-24px {
+    button.tool-bar-btn {
+      height: 40px;
+      width: 40px;
+      margin: 0px 12px;
+      &:before { line-height: 40px }
+    }
+  }
+
+  &.tool-bar-vertical {
+    .tool-bar-spacer {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      -webkit-mask-image: none;
+      width: 100% !important;
+    }
+    button.tool-bar-btn:first-child { margin-top: 1em }
+  }
+  &.tool-bar-horizontal {
+    .tool-bar-spacer {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: 1em;
+      margin-right: 1em;
+      -webkit-mask-image: none;
+      height: 100% !important;
+      button.tool-bar-btn:first-child { margin-left: 1em }
+    }
+  }
+
+  &.tool-bar-top {
+    box-shadow: 0 1px 0 0 @level-3-color;
+    position: relative;
+    z-index: 1;
+  }
+  &.tool-bar-right {
+    box-shadow: -1px 0 0 0 @level-3-color;
+  }
+  &.tool-bar-bottom {
+    box-shadow: 0 -1px 0 0 @level-3-color;
+  }
+  &.tool-bar-left {
+    box-shadow: 1px 0 0 0 @level-3-color;
+    &.tool-bar-24px {
+      button.tool-bar-btn {
+        body.custom-inset-title-bar & {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+atom-panel.left.tool-panel + atom-panel.left.tool-panel .tree-view-resizer.tool-panel {
+  margin-top: -@ui-tab-height;
+  .fullscreen & {
+    margin-top: 0;
+  }
+}
+
+body.tool-bar-top {
+  atom-panel-container.left .tree-view-resizer.tool-panel {
+    margin-top: -@ui-tab-height;
+  }
+  &:not(.fullscreen) {
+    .tool-bar {
+      transform: translateY(-(@ui-tab-height + 1));
+      -webkit-app-region: drag;
+    }
+  }
+  &.fullscreen {
+    atom-panel-container.right { margin-top: 0 }
+    atom-panel-container.left .tree-view-resizer.tool-panel {
+      margin-top: 0;
+    }
+  }
+  &.custom-inset-title-bar:not(.fullscreen) {
+    atom-panel-container.left:empty + atom-workspace-axis .tab-bar {
+      margin-left: 0;
+    }
+    .tool-bar {
+      padding-left: 80px;
+    }
+  }
+}

@@ -9,7 +9,12 @@ atom-panel-container {
   }
   &.header {
     .fullscreen & {
-      display: none;
+      .title-bar { display: none }
+    }
+  }
+  &.right {
+    body:not(.fullscreen) & {
+      margin-top: -@ui-tab-height;
     }
   }
 }
