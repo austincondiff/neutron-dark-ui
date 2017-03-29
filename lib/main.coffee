@@ -53,22 +53,17 @@ addToolbarClass = (value) ->
   if typeof atom.config.defaultSettings['tool-bar'] is 'undefined'
     removeToolbarClass()
   else
-    if atom.config.settings['tool-bar'].visible is false
+    toolbarVisible = atom.config.defaultSettings['tool-bar'].visible
+    toolBarPosition = atom.config.defaultSettings['tool-bar'].position
+    toolBarFullWidth = atom.config.defaultSettings['tool-bar'].fullWidth
+    if typeof atom.config.settings['tool-bar'] isnt 'undefined'
+      toolbarVisible = if typeof atom.config.settings['tool-bar'].visible is 'undefined' then atom.config.defaultSettings['tool-bar'].visible else atom.config.settings['tool-bar'].visible
+      toolBarPosition = if typeof atom.config.settings['tool-bar'].position is 'undefined' then atom.config.defaultSettings['tool-bar'].position else atom.config.settings['tool-bar'].position
+      toolBarFullWidth = if typeof atom.config.settings['tool-bar'].fullWidth is 'undefined' then atom.config.defaultSettings['tool-bar'].fullWidth else atom.config.settings['tool-bar'].fullWidth
+    if !toolbarVisible
       removeToolbarClass()
     else
-      toolBarPosition = atom.config.settings['tool-bar'].position
-      toolBarFullWidth = true
       removeToolbarClass()
-      if toolBarPosition is undefined
-        toolBarPosition = 'top'
-      if typeof atom.config.settings['tool-bar'].fullWidth is 'undefined'
-        toolBarFullWidth = true
-      else
-        if atom.config.settings['tool-bar'].fullWidth
-          toolBarFullWidth = true
-        else
-          toolBarFullWidth = false
-
       document.body.className += " has-tool-bar tool-bar-" + toolBarPosition.toLowerCase() + ' tool-bar-' + ( if toolBarFullWidth then '' else 'not-' ) + 'full-width'
 
 removeToolbarClass = ->
