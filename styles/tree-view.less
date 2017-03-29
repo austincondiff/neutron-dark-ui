@@ -3,18 +3,18 @@
 .tree-view {
   font-size: @ui-size;
   background: @tree-view-background-color;
-  padding: 8px 4px;
+  padding: 0 4px;
 
   .project-root.project-root {
     &:first-child {
       padding-top: @ui-padding-pane;
     }
     &:before {
-      height: @ui-size*2;
+      height: @ui-tab-height;
       background-clip: padding-box;
     }
     & > .header .name {
-      line-height: @ui-size*2;
+      line-height: @ui-tab-height;
     }
   }
 

@@ -17,8 +17,22 @@
     position: static;
     z-index: 0;
     box-shadow: 0 0 0 0 transparent;
+    background-color: transparent;
     .title {
       display: none;
     }
   }
+}
+
+// Fake background behind transparent custom inset titlebar in these edge cases
+.custom-inset-title-bar:not(.fullscreen) atom-panel-container.left:empty:after,
+.custom-inset-title-bar:not(.fullscreen) atom-panel-container.left atom-panel.left.tool-panel .tool-bar:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -@ui-tab-height;
+  left: 0;
+  width: 80px;
+  height: @ui-tab-height;
+  background-color: @level-1-color;
 }
