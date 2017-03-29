@@ -17,6 +17,9 @@ module.exports =
     atom.config.observe 'tool-bar.visible', (value) ->
       addToolbarClass(value)
 
+    atom.config.observe 'tool-bar.fullWidth', (value) ->
+      addToolbarClass(value)
+
   deactivate: ->
     unsetFontSize()
     unsetLayoutMode()
@@ -47,26 +50,34 @@ unsetTabSizing = ->
   root.removeAttribute('theme-one-dark-ui-tabsizing')
 
 addToolbarClass = (value) ->
-  console.log(atom.config)
-  console.log((typeof atom.config.defaultSettings['tool-bar']))
   if typeof atom.config.defaultSettings['tool-bar'] is 'undefined'
     removeToolbarClass()
   else
-    console.log('Tool bar is active, adding class')
     if atom.config.settings['tool-bar'].visible is false
       removeToolbarClass()
     else
       toolBarPosition = atom.config.settings['tool-bar'].position
-      console.log(toolBarPosition,'HI!!!')
+      toolBarFullWidth = true
       removeToolbarClass()
       if toolBarPosition is undefined
         toolBarPosition = 'top'
-      document.body.className += " has-tool-bar tool-bar-" + toolBarPosition.toLowerCase()
+      if typeof atom.config.settings['tool-bar'].fullWidth is 'undefined'
+        toolBarFullWidth = true
+      else
+        if atom.config.settings['tool-bar'].fullWidth
+          toolBarFullWidth = true
+        else
+          toolBarFullWidth = false
+
+      document.body.className += " has-tool-bar tool-bar-" + toolBarPosition.toLowerCase() + ' tool-bar-' + ( if toolBarFullWidth then '' else 'not-' ) + 'full-width'
 
 removeToolbarClass = ->
   bodyClassesStr = document.body.className
   newBodyClassesStr = bodyClassesStr
   newBodyClassesStr = newBodyClassesStr.replace(' has-tool-bar', '')
+  newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-full-width', '')
+  newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-not-full-width', '')
+  newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-top', '')
   newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-top', '')
   newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-right', '')
   newBodyClassesStr = newBodyClassesStr.replace(' tool-bar-bottom', '')

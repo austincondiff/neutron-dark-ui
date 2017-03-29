@@ -1,11 +1,13 @@
 atom-panel-container .tool-bar {
   background-color: @level-1-color;
+  -webkit-app-region: drag;
   .tool-bar-spacer {
     background-color: @level-3-color;
   }
   button.tool-bar-btn {
     background: transparent;
     border-color: transparent;
+    -webkit-app-region: no-drag;
   }
   &.tool-bar-24px {
     button.tool-bar-btn {
@@ -13,7 +15,15 @@ atom-panel-container .tool-bar {
       width: 40px;
       margin: 0px 12px;
       &:before { line-height: 40px }
+      &:hover, &:focus {
+        background: lighten(@level-1-color, 3%);
+        box-shadow: 0 0 0 transparent;
+      }
+      &:active {
+        background: @level-2-color;
+      }
     }
+
   }
 
   &.tool-bar-vertical {
@@ -26,58 +36,91 @@ atom-panel-container .tool-bar {
       width: 100% !important;
     }
     button.tool-bar-btn:first-child { margin-top: 1em }
-  }
-  &.tool-bar-horizontal {
-    .tool-bar-spacer {
-      margin-top: 0;
-      margin-bottom: 0;
-      margin-left: 1em;
-      margin-right: 1em;
-      -webkit-mask-image: none;
-      height: 100% !important;
-      button.tool-bar-btn:first-child { margin-left: 1em }
-    }
-  }
 
-  &.tool-bar-top {
-    box-shadow: 0 1px 0 0 @level-3-color;
-    position: relative;
-    z-index: 1;
-  }
-  &.tool-bar-right {
-    box-shadow: -1px 0 0 0 @level-3-color;
-  }
-  &.tool-bar-bottom {
-    box-shadow: 0 -1px 0 0 @level-3-color;
-  }
-  &.tool-bar-left {
-    box-shadow: 1px 0 0 0 @level-3-color;
-    &.tool-bar-24px {
-      button.tool-bar-btn {
-        body.custom-inset-title-bar & {
+    &.tool-bar-left {
+      box-shadow: 1px 0 0 0 @level-3-color;
+      body.custom-inset-title-bar & {
+        &.tool-bar-16px button.tool-bar-btn {
+          margin-left: 24px;
+          margin-right: 24px;
+        }
+        &.tool-bar-24px button.tool-bar-btn {
           margin-left: 20px;
           margin-right: 20px;
         }
+        &.tool-bar-32px button.tool-bar-btn {
+          margin-left: 7px;
+          margin-right: 7px;
+        }
       }
     }
+    &.tool-bar-right {
+      box-shadow: -1px 0 0 0 @level-3-color;
+    }
+
   }
+
+  &.tool-bar-horizontal {
+    height: @ui-tab-height;
+    &.tool-bar-24px {
+      .tool-bar-spacer {
+        height: @ui-tab-height;
+      }
+    }
+    .tool-bar-spacer {
+      margin-top: 0;
+      margin-bottom: 0;
+      margin-left: .5em;
+      margin-right: .5em;
+      -webkit-mask-image: none;
+      height: @ui-tab-height;
+    }
+    button.tool-bar-btn {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+      height: @ui-tab-height;
+      &:hover, &:focus {
+        background: lighten(@level-1-color, 3%);
+        box-shadow: 0 0 0 transparent;
+      }
+      &:active {
+        background: @level-2-color;
+      }
+      &:first-child { margin-left: .5em; }
+    }
+
+    &.tool-bar-top {
+      box-shadow: 0 1px 0 0 @level-3-color;
+      position: relative;
+      z-index: 1;
+    }
+    &.tool-bar-bottom {
+      box-shadow: 0 -1px 0 0 @level-3-color;
+    }
+
+  }
+
+
 }
 
 atom-panel.left.tool-panel + atom-panel.left.tool-panel .tree-view-resizer.tool-panel {
-  margin-top: -@ui-tab-height;
+  .custom-inset-title-bar & {
+    margin-top: -@ui-tab-height;
+  }
   .fullscreen & {
     margin-top: 0;
   }
 }
 
 body.tool-bar-top {
-  atom-panel-container.left .tree-view-resizer.tool-panel {
-    margin-top: -@ui-tab-height;
-  }
-  &:not(.fullscreen) {
+  &.custom-inset-title-bar:not(.fullscreen) {
+    atom-panel-container.left .tree-view-resizer.tool-panel {
+      margin-top: -@ui-tab-height;
+    }
     .tool-bar {
-      transform: translateY(-(@ui-tab-height + 1));
-      -webkit-app-region: drag;
+      transform: translateY(-@ui-tab-height);
     }
   }
   &.fullscreen {
@@ -92,6 +135,14 @@ body.tool-bar-top {
     }
     .tool-bar {
       padding-left: 80px;
+    }
+  }
+  &.tool-bar-not-full-width.custom-inset-title-bar:not(.fullscreen) {
+    .tool-bar {
+      padding-left: 0;
+    }
+    atom-panel-container.left .tree-view-resizer.tool-panel {
+      padding-top: @ui-tab-height;
     }
   }
 }
