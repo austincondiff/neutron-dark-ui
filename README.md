@@ -1,4 +1,4 @@
-## Neutron Dark UI theme [![Build Status](https://travis-ci.org/atom/one-dark-ui.svg?branch=master)](https://travis-ci.org/atom/one-dark-ui)
+## Neutron Dark UI theme [![Build Status](https://travis-ci.org/atom/neutron-dark-ui.svg?branch=master)](https://travis-ci.org/atom/neutron-dark-ui)
 
 A dark UI theme that adjusts to most syntax themes.
 
@@ -35,7 +35,7 @@ And pick a __Tab Sizing__ mode:
 It's also possible to resize only certain areas by adding the following to your `styles.less` (Use DevTools to find the right selectors):
 
 ```css
-.theme-one-dark-ui {
+.theme-neutron-dark-ui {
   .tab-bar { font-size: 18px; }
   .tree-view { font-size: 14px; }
   .status-bar { font-size: 12px; }

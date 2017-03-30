@@ -2,13 +2,13 @@ root = document.documentElement
 
 module.exports =
   activate: (state) ->
-    atom.config.observe 'one-dark-ui.fontSize', (value) ->
+    atom.config.observe 'neutron-dark-ui.fontSize', (value) ->
       setFontSize(value)
 
-    atom.config.observe 'one-dark-ui.layoutMode', (value) ->
+    atom.config.observe 'neutron-dark-ui.layoutMode', (value) ->
       setLayoutMode(value)
 
-    atom.config.observe 'one-dark-ui.tabSizing', (value) ->
+    atom.config.observe 'neutron-dark-ui.tabSizing', (value) ->
       setTabSizing(value)
 
     atom.config.observe 'tool-bar.position', (value) ->
@@ -37,17 +37,17 @@ unsetFontSize = ->
 
 # Layout Mode -----------------------
 setLayoutMode = (layoutMode) ->
-  root.setAttribute('theme-one-dark-ui-layoutmode', layoutMode.toLowerCase())
+  root.setAttribute('theme-neutron-dark-ui-layoutmode', layoutMode.toLowerCase())
 
 unsetLayoutMode = ->
-  root.removeAttribute('theme-one-dark-ui-layoutmode')
+  root.removeAttribute('theme-neutron-dark-ui-layoutmode')
 
 # Tab Sizing -----------------------
 setTabSizing = (tabSizing) ->
-  root.setAttribute('theme-one-dark-ui-tabsizing', tabSizing.toLowerCase())
+  root.setAttribute('theme-neutron-dark-ui-tabsizing', tabSizing.toLowerCase())
 
 unsetTabSizing = ->
-  root.removeAttribute('theme-one-dark-ui-tabsizing')
+  root.removeAttribute('theme-neutron-dark-ui-tabsizing')
 
 addToolbarClass = (value) ->
   if typeof atom.config.defaultSettings['tool-bar'] is 'undefined'

@@ -2,10 +2,11 @@
   "name": "neutron-dark-ui",
   "theme": "ui",
   "version": "2.1.2",
-  "description": "Neutron dark UI theme",
+  "description": "Carefully designed simplistic dark UI theme. Adapts to your syntax theme.",
   "keywords": [
     "dark",
     "adaptive",
+    "simplistic",
     "ui"
   ],
   "license": "MIT",

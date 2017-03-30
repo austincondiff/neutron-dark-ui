@@ -1,6 +1,7 @@
 .tooltip {
   white-space: nowrap;
-  font-size: @ui-size*1.15;
+  font-size: @ui-size;
+  border-radius: @component-border-radius;
 
   &.in {
     opacity: 1;
@@ -9,7 +10,7 @@
 
   .tooltip-inner {
     line-height: 1;
-    padding: @ui-padding*.5 @ui-padding*.65;
+    padding: @ui-padding*.35 @ui-padding*.425;
     border-radius: @component-border-radius;
     background-color: @tooltip-background-color;
     color: @tooltip-text-color;
